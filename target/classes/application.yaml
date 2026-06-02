@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: equipofutbol-adso
+  datasource:
+    url: jdbc:mysql://localhost:3306/futbol
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        "[format_sql]": true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 9090
+  servlet:
+    context-path: /api/v1/
+
+security:
+  jwt:
+    secret-key: WCrD7ZwsNH2yZx4d29X3522BEAYTjm7BiNJxi9xksjU=
+    token-expiration: 600000

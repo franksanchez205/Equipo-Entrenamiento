@@ -1,0 +1,672 @@
+{
+  "info": {
+    "name": "Equipo Futbol ADSO API",
+    "description": "Colección de pruebas para la API de gestión de equipo de fútbol",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\",\n  \"rol\": 0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:9090/api/v1/auth/refreshToken",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "auth", "refreshToken"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Players",
+      "item": [
+        {
+          "name": "Create Player 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Carlos López\",\n  \"posicion\": \"Delantero\",\n  \"numeroCamiseta\": 9,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"posicion\": \"Defensa\",\n  \"numeroCamiseta\": 4,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Pedro Ramírez\",\n  \"posicion\": \"Medio\",\n  \"numeroCamiseta\": 8,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 4",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Luis Martínez\",\n  \"posicion\": \"Portero\",\n  \"numeroCamiseta\": 1,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 5",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Andrés García\",\n  \"posicion\": \"Lateral\",\n  \"numeroCamiseta\": 3,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 6",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Diego Torres\",\n  \"posicion\": \"Medio\",\n  \"numeroCamiseta\": 10,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Create Player 7",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Fernando Ruiz\",\n  \"posicion\": \"Defensa\",\n  \"numeroCamiseta\": 5,\n  \"rol\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user"]
+            }
+          }
+        },
+        {
+          "name": "Get Player by Camiseta",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user/9",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user", "9"]
+            }
+          }
+        },
+        {
+          "name": "Get Top 5",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:9090/api/v1/user/top5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "user", "top5"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Training Results",
+      "item": [
+        {
+          "name": "Resultado Player 9 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 15,\n  \"potenciaTiro\": 8,\n  \"velocidadJugador\": 9,\n  \"users\": \"9\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 9 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 12,\n  \"potenciaTiro\": 7,\n  \"velocidadJugador\": 8,\n  \"users\": \"9\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 9 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 18,\n  \"potenciaTiro\": 9,\n  \"velocidadJugador\": 10,\n  \"users\": \"9\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 4 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 10,\n  \"potenciaTiro\": 5,\n  \"velocidadJugador\": 7,\n  \"users\": \"4\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 4 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 11,\n  \"potenciaTiro\": 6,\n  \"velocidadJugador\": 7,\n  \"users\": \"4\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 4 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 14,\n  \"potenciaTiro\": 8,\n  \"velocidadJugador\": 9,\n  \"users\": \"4\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 8 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 13,\n  \"potenciaTiro\": 9,\n  \"velocidadJugador\": 6,\n  \"users\": \"8\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 8 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 14,\n  \"potenciaTiro\": 8,\n  \"velocidadJugador\": 7,\n  \"users\": \"8\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 8 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 16,\n  \"potenciaTiro\": 10,\n  \"velocidadJugador\": 8,\n  \"users\": \"8\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 1 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 8,\n  \"potenciaTiro\": 4,\n  \"velocidadJugador\": 5,\n  \"users\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 1 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 9,\n  \"potenciaTiro\": 5,\n  \"velocidadJugador\": 6,\n  \"users\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 1 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 10,\n  \"potenciaTiro\": 6,\n  \"velocidadJugador\": 7,\n  \"users\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 3 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 12,\n  \"potenciaTiro\": 7,\n  \"velocidadJugador\": 8,\n  \"users\": \"3\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 3 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 13,\n  \"potenciaTiro\": 8,\n  \"velocidadJugador\": 9,\n  \"users\": \"3\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 3 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 15,\n  \"potenciaTiro\": 9,\n  \"velocidadJugador\": 10,\n  \"users\": \"3\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 10 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 20,\n  \"potenciaTiro\": 10,\n  \"velocidadJugador\": 9,\n  \"users\": \"10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 10 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 18,\n  \"potenciaTiro\": 9,\n  \"velocidadJugador\": 10,\n  \"users\": \"10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 10 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 22,\n  \"potenciaTiro\": 10,\n  \"velocidadJugador\": 10,\n  \"users\": \"10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 5 - Entreno 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 1,\n  \"pasesEfectivos\": 9,\n  \"potenciaTiro\": 6,\n  \"velocidadJugador\": 7,\n  \"users\": \"5\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 5 - Entreno 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 2,\n  \"pasesEfectivos\": 10,\n  \"potenciaTiro\": 7,\n  \"velocidadJugador\": 8,\n  \"users\": \"5\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        },
+        {
+          "name": "Resultado Player 5 - Entreno 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroEntrenamiento\": 3,\n  \"pasesEfectivos\": 11,\n  \"potenciaTiro\": 8,\n  \"velocidadJugador\": 9,\n  \"users\": \"5\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9090/api/v1/resultados",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9090",
+              "path": ["api", "v1", "resultados"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": ""
+    }
+  ]
+}
