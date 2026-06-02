@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/resultados")
-public class ResponseController {
+public class ResultadoController {
 
     /**
      * Servicio de resultados inyectado por Spring que contiene la lógica de negocio para registrar
