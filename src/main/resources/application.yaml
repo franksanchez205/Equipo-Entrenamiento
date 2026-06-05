@@ -1,43 +1,6 @@
 spring:
   application:
     name: equipofutbol-adso
-  profiles:
-    active: h2
-
-server:
-  port: ${PORT:9090}
-  servlet:
-    context-path: /api/v1/
-
-security:
-  jwt:
-    secret-key: WCrD7ZwsNH2yZx4d29X3522BEAYTjm7BiNJxi9xksjU=
-    token-expiration: 600000
-
----
-spring:
-  config:
-    activate:
-      on-profile: h2
-  datasource:
-    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    database: h2
-  h2:
-    console:
-      enabled: true
-
----
-spring:
-  config:
-    activate:
-      on-profile: mysql
   datasource:
     url: jdbc:mysql://${BD_HOST}:${BD_PORT}/${BD_NAME}
     username: ${BD_USER}
@@ -51,3 +14,13 @@ spring:
       hibernate:
         "[format_sql]": true
         dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: ${PORT:9090}
+  servlet:
+    context-path: /api/v1/
+
+security:
+  jwt:
+    secret-key: WCrD7ZwsNH2yZx4d29X3522BEAYTjm7BiNJxi9xksjU=
+    token-expiration: 600000
