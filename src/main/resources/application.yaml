@@ -2,9 +2,9 @@ spring:
   application:
     name: equipofutbol-adso
   datasource:
-    url: jdbc:mysql://${BD_HOST:localhost}:${BD_PORT:3306}/${BD_NAME:futbol}
+    url: jdbc:mysql://${BD_HOST:acela.proxy.rlwy.net}:${BD_PORT:15914}/${BD_NAME:railway}
     username: ${BD_USER:root}
-    password: ${BD_PASSWORD:root}
+    password: ${BD_PASSWORD:jYwFHMCXmkjYTfSYQuxoZAaquRPBwfBx}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
