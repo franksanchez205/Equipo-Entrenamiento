@@ -2,13 +2,13 @@ spring:
   application:
     name: equipofutbol-adso
   datasource:
-    url: jdbc:mysql://localhost:3306/futbol
-    username: root
-    password: 12345
+    url: jdbc:mysql://${BD_HOST}:${BD_PORT}/${BD_NAME}
+    username: ${BD_USER}
+    password: ${BD_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -16,7 +16,7 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 
 server:
-  port: 9090
+  port: ${PORT:9090}
   servlet:
     context-path: /api/v1/
 
