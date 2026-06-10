@@ -67,37 +67,28 @@ public class JwtValidationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws IOException {
         String autHeader = request.getHeader("Authorization");
 
-        if (autHeader == null || !autHeader.startsWith("Bearer ")) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.getWriter().write("{\"error\": \"Header is missing in the request\"}");
-            return;
-        }
+        if (autHeader != null && autHeader.startsWith("Bearer ")) {
+            String token = autHeader.replace("Bearer ", "");
+            try {
+                if (jwtService.isTokenValid(token)) {
+                    String username = jwtService.extractUsername(token);
+                    String userId = jwtService.extractUserId(token);
+                    String rolId = jwtService.extractRolId(token);
 
-        String token = autHeader.replace("Bearer ", "");
-
-        try {
-            if (jwtService.isTokenValid(token)) {
-                String username = jwtService.extractUsername(token);
-                String userId = jwtService.extractUserId(token);
-                String rolId = jwtService.extractRolId(token);
-
-                request.setAttribute("username", username);
-                request.setAttribute("userId", userId);
-                request.setAttribute("rolId", rolId);
-                request.setAttribute("role", rolId);
-
-                filterChain.doFilter(request, response);
-            } else {
+                    request.setAttribute("username", username);
+                    request.setAttribute("userId", userId);
+                    request.setAttribute("rolId", rolId);
+                    request.setAttribute("role", rolId);
+                }
+            } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.setContentType("application/json");
-                response.getWriter().write("{\"error\": \"Token is invalid or expired\"}");
+                response.getWriter().write("{\"error\": \"Invalid token\"}");
+                return;
             }
-        } catch (Exception e) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.getWriter().write("{\"error\": \"Validation failed\"}");
         }
+
+        filterChain.doFilter(request, response);
     }
 
     /**
@@ -124,8 +115,6 @@ public class JwtValidationFilter extends OncePerRequestFilter {
                 || path.equals("/api/v1/app.js")
                 || path.equals("/api/v1/favicon.ico")
                 || path.startsWith("/api/v1/auth")
-                || path.startsWith("/api/v1/user")
-                || path.startsWith("/api/v1/resultados")
                 || path.startsWith("/api/v1/swagger-ui")
                 || path.startsWith("/api/v1/v3/api-docs")
                 || path.startsWith("/api/v1/swagger-config");
