@@ -64,7 +64,7 @@ public class JwtValidationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain filterChain) throws IOException {
+                                    FilterChain filterChain) throws IOException, jakarta.servlet.ServletException {
         String autHeader = request.getHeader("Authorization");
 
         if (autHeader != null && autHeader.startsWith("Bearer ")) {
