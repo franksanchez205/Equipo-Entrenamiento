@@ -7,7 +7,12 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Entidad central del dominio que representa a un usuario del sistema, ya sea un administrador
@@ -123,6 +128,9 @@ public class Users {
      * método que lo utiliza.
      */
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("users")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Resultados> listResultados = new ArrayList<>();
 
 }

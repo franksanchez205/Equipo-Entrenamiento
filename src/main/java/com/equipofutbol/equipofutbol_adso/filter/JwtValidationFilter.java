@@ -3,6 +3,7 @@ package com.equipofutbol.equipofutbol_adso.filter;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -115,6 +116,18 @@ public class JwtValidationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.startsWith("/api/v1/auth");
+        return HttpMethod.OPTIONS.matches(request.getMethod())
+                || path.equals("/api/v1")
+                || path.equals("/api/v1/")
+                || path.equals("/api/v1/index.html")
+                || path.equals("/api/v1/styles.css")
+                || path.equals("/api/v1/app.js")
+                || path.equals("/api/v1/favicon.ico")
+                || path.startsWith("/api/v1/auth")
+                || path.startsWith("/api/v1/user")
+                || path.startsWith("/api/v1/resultados")
+                || path.startsWith("/api/v1/swagger-ui")
+                || path.startsWith("/api/v1/v3/api-docs")
+                || path.startsWith("/api/v1/swagger-config");
     }
 }

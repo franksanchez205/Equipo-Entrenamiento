@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipo Futbol ADSO</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <div>
+          <p class="eyebrow">Gestion deportiva</p>
+          <h1>Equipo Futbol ADSO</h1>
+        </div>
+        <div class="session-card">
+          <span id="sessionStatus">Sin sesion activa</span>
+          <button id="logoutButton" class="ghost-button" type="button">Cerrar sesion</button>
+        </div>
+      </nav>
+      <section class="hero-grid">
+        <div>
+          <h2>Selecciona los 5 titulares con datos reales de entrenamiento.</h2>
+          <p>
+            Registra jugadores, carga los tres entrenamientos semanales y consulta el equipo titular
+            ordenado por puntaje promedio.
+          </p>
+        </div>
+        <div class="score-formula">
+          <span>Formula de puntaje</span>
+          <strong>pases 50% + velocidad 30% + potencia 20%</strong>
+        </div>
+      </section>
+    </header>
+
+    <main class="layout">
+      <section class="panel auth-panel">
+        <div class="section-title">
+          <p class="eyebrow">Acceso</p>
+          <h2>Autenticacion</h2>
+        </div>
+
+        <div class="form-grid two-columns">
+          <form id="loginForm" class="card-form">
+            <h3>Iniciar sesion</h3>
+            <label>
+              Usuario
+              <input name="username" type="text" autocomplete="username" required />
+            </label>
+            <label>
+              Contrasena
+              <input name="password" type="password" autocomplete="current-password" required />
+            </label>
+            <button type="submit">Entrar</button>
+          </form>
+
+          <form id="registerForm" class="card-form">
+            <h3>Registrar usuario</h3>
+            <label>
+              Usuario
+              <input name="username" type="text" required />
+            </label>
+            <label>
+              Contrasena
+              <input name="password" type="password" required />
+            </label>
+            <label>
+              Rol
+              <select name="rol" required>
+                <option value="0">Administrador</option>
+                <option value="1">Jugador</option>
+              </select>
+            </label>
+            <button type="submit">Registrar</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <p class="eyebrow">Plantilla</p>
+          <h2>Crear jugador</h2>
+        </div>
+
+        <form id="playerForm" class="card-form inline-form">
+          <label>
+            Nombre
+            <input name="nombre" type="text" placeholder="Ej: Juan Perez" required />
+          </label>
+          <label>
+            Posicion
+            <input name="posicion" type="text" placeholder="Ej: Delantero" required />
+          </label>
+          <label>
+            Camiseta
+            <input name="numeroCamiseta" type="number" min="1" required />
+          </label>
+          <button type="submit">Guardar jugador</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <p class="eyebrow">Entrenamientos</p>
+          <h2>Registrar resultado</h2>
+        </div>
+
+        <form id="trainingForm" class="card-form inline-form training-form">
+          <label>
+            Entrenamiento
+            <select name="numeroEntrenamiento" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </label>
+          <label>
+            Camiseta
+            <input name="users" type="number" min="1" required />
+          </label>
+          <label>
+            Pases efectivos
+            <input name="pasesEfectivos" type="number" min="0" step="0.01" required />
+          </label>
+          <label>
+            Velocidad
+            <input name="velocidadJugador" type="number" min="0" step="0.01" required />
+          </label>
+          <label>
+            Potencia tiro
+            <input name="potenciaTiro" type="number" min="0" step="0.01" required />
+          </label>
+          <button type="submit">Guardar resultado</button>
+        </form>
+      </section>
+
+      <section class="panel roster-panel">
+        <div class="section-title with-action">
+          <div>
+            <p class="eyebrow">Equipo titular</p>
+            <h2>Top 5 jugadores</h2>
+          </div>
+          <button id="loadTopButton" type="button">Actualizar top 5</button>
+        </div>
+        <div id="topPlayers" class="players-grid empty-state">
+          Presiona "Actualizar top 5" para consultar el equipo titular.
+        </div>
+      </section>
+
+      <section id="messagePanel" class="message-panel" aria-live="polite"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -31,6 +31,15 @@ API REST para gestión de equipo de fútbol con autenticación JWT y registro de
 - **JPA:** `ddl-auto: create-drop` (reinicia esquema en cada inicio), dialecto `MySQLDialect`
 - **JWT:** Clave secreta Base64: `WCrD7ZwsNH2yZx4d29X3522BEAYTjm7BiNJxi9xksjU=`. Expiración: 600000 ms (10 min)
 
+### Frontend monolítico
+
+El frontend se sirve desde el mismo backend Spring Boot usando recursos estáticos en `src/main/resources/static`.
+
+- **URL principal:** `http://localhost:9090/api/v1/`
+- **Archivos:** `index.html`, `styles.css`, `app.js`
+- **Consumo de API:** el JavaScript usa el mismo origen del backend y el context-path `/api/v1`, por lo que no requiere un servidor frontend separado.
+- **Autenticación:** al iniciar sesión se guarda el JWT en `localStorage` y se envía como `Authorization: Bearer <token>` en las peticiones protegidas.
+
 ---
 
 ## Estructura del Proyecto
@@ -40,6 +49,7 @@ src/main/java/com/equipofutbol/equipofutbol_adso/
 ├── EquipofutbolAdsoApplication.java   # Punto de entrada Spring Boot
 ├── config/                            # Configuraciones globales
 │   ├── AppConfig.java                 # Bean PasswordEncoder (BCrypt)
+│   ├── CorsConfig.java                # Configuración CORS global
 │   ├── FilterConfig.java              # Registro del filtro JWT
 │   └── SecurityContext.java           # Acceso al rol desde cualquier capa
 ├── controller/                        # Controladores REST
@@ -73,6 +83,11 @@ src/main/java/com/equipofutbol/equipofutbol_adso/
     ├── JwtService.java                # Generación y validación de tokens
     ├── ResultadoService.java          # Registro de resultados
     └── UserService.java               # Gestión de jugadores
+
+src/main/resources/static/
+├── index.html                         # Interfaz monolítica servida por Spring Boot
+├── styles.css                         # Estilos responsivos del frontend
+└── app.js                             # Cliente API y lógica de interacción
 ```
 
 ---

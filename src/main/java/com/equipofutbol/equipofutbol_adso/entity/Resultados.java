@@ -1,7 +1,11 @@
 package com.equipofutbol.equipofutbol_adso.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Entidad que representa el resultado de un entrenamiento individual registrado para un jugador.
@@ -75,5 +79,8 @@ public class Resultados {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
+    @JsonIgnoreProperties("listResultados")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Users users;
 }
