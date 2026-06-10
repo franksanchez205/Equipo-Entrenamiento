@@ -163,8 +163,6 @@ public class UserService {
      * @return Lista de hasta 5 UserResponseDTO con los jugadores de mayor puntaje y sus entrenamientos.
      */
     public List<UserResponseDTO> obtenerTop5() {
-        validateAdminRole();
-
         List<Users> jugadores = userRepository.obtenerPuntajesDeTodosLosJugadores();
 
         if (jugadores.isEmpty()) {
